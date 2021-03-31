@@ -16,3 +16,5 @@ Target 2 Minggu maksimal
 
    Fitur :
    1.
+   2.
+   
