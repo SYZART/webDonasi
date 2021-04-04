@@ -37,13 +37,14 @@ class Welcome extends CI_Controller
 		$this->load->view('home', $data);
 		$this->load->view('templates/footer');
 	}
-	public function donasi($id)
+	public function donasi()
 	{
-		$data['totalDonasi'] = $this->db->query("SELECT SUM(nominal) as total 
-		FROM donasi WHERE id_iklan= $id")->result();
-		$data['totalPendonasi'] = $this->db->query("SELECT COUNT(name) as pendonasi 
-		FROM donasi WHERE id_iklan = $id")->result();
-		$data['donasi'] = $this->Model->ambil_id_iklan($id);
+		$data['title'] = 'Detail Donasi';
+		// $data['totalDonasi'] = $this->db->query("SELECT SUM(nominal) as total 
+		// FROM donasi WHERE id_iklan= $id")->result();
+		// $data['totalPendonasi'] = $this->db->query("SELECT COUNT(name) as pendonasi 
+		// FROM donasi WHERE id_iklan = $id")->result();
+		// $data['donasi'] = $this->Model->ambil_id_iklan($id);
 		$this->load->view('templates/header');
 		$this->load->view('donasi', $data);
 		$this->load->view('templates/footer');

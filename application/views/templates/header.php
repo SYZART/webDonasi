@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Fundraiser &mdash; Website Template by Colorlib</title>
+    <title>Relawan &mdash; Donasi </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -50,13 +50,13 @@
 
 
                     <div class="site-logo">
-                        <a href="index.html" class="text-white">Fundraiser</a>
+                        <a href="<?= base_url(); ?>" class="text-white">Relawan Donasi</a>
                     </div>
 
 
                     <nav class="site-navigation text-left ml-auto " role="navigation">
                         <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-                            <li class="active"><a href="index.html" class="nav-link">Home</a></li>
+                            <li class="active"><a href="<?= base_url(); ?>" class="nav-link">Home</a></li>
                             <li><a href="about.html" class="nav-link">About Us</a></li>
                             <li><a href="causes.html" class="nav-link">Our Causes</a></li>
                             <li><a href="blog.html" class="nav-link">Blog</a></li>

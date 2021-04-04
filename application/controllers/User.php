@@ -10,24 +10,27 @@ class User extends CI_Controller
     // }
     public function index()
     {
-        $data['title'] = 'My Profile';
+        $data['title'] = 'Penggalangan Donasi';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $role_id = $this->session->userdata('role_id');
         $data['menu'] = $this->db->query("SELECT * FROM user_sub_menu 
         WHERE user_sub_menu.menu_id = $role_id
         ")->result_array();
         $data['dataKategori'] = $this->Model->get_data('kategori_iklan')->result();
-        $data['iklan'] = $this->db->query("SELECT iklan.id, iklan.id_kategori, iklan.id_user, iklan.judul, iklan.date, iklan.date_end, iklan.gambar, iklan.cerita, iklan.status, kategori_iklan.id_kategori, kategori_iklan.nama_kategori, user.name, user.image
+        $data['iklan'] = $this->db->query("SELECT iklan.id, iklan.id_kategori, iklan.id_user, iklan.judul, iklan.total_dana, iklan.date, iklan.date_end, iklan.gambar, iklan.cerita, iklan.status, kategori_iklan.id_kategori, kategori_iklan.nama_kategori, user.name, user.image
         FROM iklan, kategori_iklan, user 
         WHERE kategori_iklan.id_kategori = iklan.id_kategori 
         AND iklan.id_user = user.id")->result();
-        $this->load->view('user/header', $data);
-        $this->load->view('user/index', $data);
-        $this->load->view('user/footer');
+        $this->load->view('templates/header', $data);
+        $this->load->view('home', $data);
+        $this->load->view('templates/footer');
     }
     public function donasi($id)
     {
-        $data['title'] = 'Donasi User';
+        $data = [
+            'title' => 'donasi',
+            'iklan' => $this->Model->get_detail($id)
+        ];
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $role_id = $this->session->userdata('role_id');
         $data['donasi'] = $this->Model->ambil_id_iklan($id);
@@ -38,9 +41,10 @@ class User extends CI_Controller
         $data['menu'] = $this->db->query("SELECT * FROM user_sub_menu 
         WHERE user_sub_menu.menu_id = $role_id
         ")->result_array();
-        $this->load->view('user/header', $data);
-        $this->load->view('user/donasi', $data);
-        $this->load->view('user/footer');
+        $data['iklan'] = $this->db->get('iklan')->row_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('donasi', $data);
+        $this->load->view('templates/footer');
     }
     public function inputDonasi()
     {
