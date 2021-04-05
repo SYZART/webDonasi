@@ -76,17 +76,14 @@
                             <div style="margin-top: -30px;" class="border-light border-bottom py-2 d-flex">
                                 <p>Dana terkumpul :</p>
 
-
-                                <?php $data = $this->db->query("SELECT SUM(nominal) as total 
-                                        FROM donasi WHERE id_iklan= $ik->id")->result();
-                                // $a = $totalDonasi->$total;
-                                // $a = intval($data);
-                                // echo "$a";
-                                var_dump($data);
-
-
+                                <?php $data = "SELECT SUM(nominal) as total 
+                                        FROM donasi WHERE id_iklan= $ik->id";
+                                $menu = $this->db->query($data)->result_array();
                                 ?>
-
+                                <?php foreach ($menu as $m) :   ?>
+                                    <!-- <?= $m['total']; ?> -->
+                                    <div class="ml-auto"><strong class="text-primary"><?= "Rp " . number_format($m['total'], 2, ',', '.'); ?></strong></div>
+                                <?php endforeach; ?>
 
                             </div>
 
