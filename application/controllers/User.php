@@ -27,10 +27,7 @@ class User extends CI_Controller
     }
     public function donasi($id)
     {
-        $data = [
-            'title' => 'donasi',
-            'iklan' => $this->Model->get_detail($id)
-        ];
+        $data['title'] = "Detail Donasi";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $role_id = $this->session->userdata('role_id');
         $data['donasi'] = $this->Model->ambil_id_iklan($id);
@@ -70,7 +67,7 @@ class User extends CI_Controller
 		<span aria-hidden="true">&times;</span>
 		</button>
 		</div>');
-        redirect('user');
+        redirect('user/donasi/' . $id_iklan);
     }
     public function pengajuanIklan()
     {

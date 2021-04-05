@@ -57,27 +57,37 @@
             <?php foreach ($iklan as $ik) : ?>
                 <div class="col-md-4">
                     <div class="cause shadow-sm">
+                        <!-- <?php $tgl_ini = date('Y-m-d');
+                                $date_end = $ik->date_end;
+                                if ($tgl_ini > $date_end) {
+                                } else {
+                                    echo "iklan ini tak tampil";
+                                }
+                                ?> -->
 
-                        <a href="#" class="cause-link d-block">
-                            <img src="<?= base_url('assets/') ?>images/img_1.jpg" alt="Image" class="img-fluid">
-                            <div class="custom-progress-wrap">
-                                <span class="caption">80% complete</span>
-                                <div class="custom-progress-inner">
-                                    <div class="custom-progress bg-danger" style="width: 90%;"></div>
-                                </div>
-                            </div>
-                        </a>
 
                         <div class="px-3 pt-3 border-top-0 border border shadow-sm">
                             <span class="badge-danger py-1 small px-2 rounded mb-3 d-inline-block"><?= $ik->nama_kategori ?></span>
-                            <h3 class="mb-4"><a href="<?= base_url('welcome/donasi/'); ?>"><?= $ik->judul ?></a></h3>
+                            <h3 class="mb-4"><a href="<?= base_url('user/donasi/') . $ik->id; ?>"><?= $ik->judul ?></a></h3>
                             <div class="border-top border-light py-2 d-flex">
                                 <p>Dana yang dibutuhkan :</p>
                                 <div class="ml-auto"><strong class="text-primary"><?= "Rp " . number_format($ik->total_dana, 2, ',', '.'); ?></strong></div>
                             </div>
                             <div style="margin-top: -30px;" class="border-light border-bottom py-2 d-flex">
                                 <p>Dana terkumpul :</p>
-                                <div class="ml-auto"><strong class="text-primary"><?= "Rp " . number_format($ik->total_dana, 2, ',', '.'); ?></strong></div>
+
+
+                                <?php $data = $this->db->query("SELECT SUM(nominal) as total 
+                                        FROM donasi WHERE id_iklan= $ik->id")->result();
+                                // $a = $totalDonasi->$total;
+                                // $a = intval($data);
+                                // echo "$a";
+                                var_dump($data);
+
+
+                                ?>
+
+
                             </div>
 
                             <div class="py-4">
