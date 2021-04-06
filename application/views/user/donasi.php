@@ -59,7 +59,8 @@
 
         </div>
         <div class="col-md-5">
-            <form method="POST" action="<?= base_url('welcome/inputDonasi'); ?>">
+
+            <form method="POST" action="<?= base_url('user/inputDonasi'); ?>">
                 <?php foreach ($donasi as $d) : ?>
                     <div class="form-group" hidden>
                         <input type="text" id="id_iklan" name="id_iklan" class="form-control" placeholder="Name" value="<?= $d->id ?>">

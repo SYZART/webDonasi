@@ -67,8 +67,17 @@
 
 
                         <div class="px-3 pt-3 border-top-0 border border shadow-sm">
+                            <a href="#" class="cause-link d-block">
+                                <img src="<?= base_url('assets/images/') . $ik->gambar ?>" alt="Image" class="img-fluid">
+                                <div class="custom-progress-wrap">
+                                    <span class="caption">80% complete</span>
+                                    <div class="custom-progress-inner">
+                                        <div class="custom-progress bg-danger" style="width: 90%;"></div>
+                                    </div>
+                                </div>
+                            </a>
                             <span class="badge-danger py-1 small px-2 rounded mb-3 d-inline-block"><?= $ik->nama_kategori ?></span>
-                            <h3 class="mb-4"><a href="<?= base_url('user/donasi/') . $ik->id; ?>"><?= $ik->judul ?></a></h3>
+                            <h3 class="mb-4"><a href="<?= base_url('welcome/donasi/') . $ik->id; ?>"><?= $ik->judul ?></a></h3>
                             <div class="border-top border-light py-2 d-flex">
                                 <p>Dana yang dibutuhkan :</p>
                                 <div class="ml-auto"><strong class="text-primary"><?= "Rp " . number_format($ik->total_dana, 2, ',', '.'); ?></strong></div>
