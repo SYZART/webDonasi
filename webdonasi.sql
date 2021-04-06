@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2021 at 03:33 PM
+-- Generation Time: Apr 06, 2021 at 04:01 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -37,6 +37,38 @@ CREATE TABLE `donasi` (
   `pesan` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `donasi`
+--
+
+INSERT INTO `donasi` (`id`, `id_iklan`, `id_user`, `name`, `nominal`, `date`, `pesan`) VALUES
+(18, 0, 0, 'andi', 2000, 1617636141, 'alhamdulillah'),
+(20, 48, 0, 'andi', 70000, 1617637879, 'alhamdulilah'),
+(21, 44, 0, 'andi', 90000, 1617640619, 'alhamdulillah'),
+(22, 44, 0, 'andi', 90000, 1617640658, 'alhamdulillah'),
+(23, 44, 0, 'andi', 90000, 1617640751, 'alh'),
+(24, 44, 0, 'andi', 70000, 1617640824, 'a'),
+(25, 47, 0, 'andi', 90000, 1617644912, 'aslha'),
+(26, 46, 0, '', 0, 1617693872, ''),
+(27, 46, 0, 'andi', 90000, 1617693882, 'halo'),
+(28, 44, 0, 'andi', 90000, 1617693985, 's'),
+(29, 46, 0, 'andi', 70000, 1617694052, 'm'),
+(30, 46, 0, 'andi', 90000, 1617694092, 'a'),
+(31, 44, 0, 'andi', 70000, 1617694163, 'k'),
+(32, 44, 0, 'andi', 90000, 1617694264, 'q'),
+(33, 44, 0, '', 90000, 1617694473, ''),
+(34, 44, 0, '', 90000, 1617694571, ''),
+(35, 44, 0, '', 0, 1617706018, ''),
+(36, 44, 0, '', 0, 1617706072, ''),
+(37, 44, 0, '', 0, 1617706110, ''),
+(38, 44, 0, '', 0, 1617706151, ''),
+(39, 44, 0, '', 0, 1617706194, ''),
+(40, 44, 0, '', 0, 1617713906, ''),
+(41, 44, 0, 'andi', 90000, 1617714904, 'l'),
+(42, 1, 0, '', 0, 1617717180, ''),
+(43, 1, 0, '', 0, 1617717512, ''),
+(44, 2, 0, '', 0, 1617717534, '');
+
 -- --------------------------------------------------------
 
 --
@@ -49,7 +81,7 @@ CREATE TABLE `iklan` (
   `id_user` int(11) NOT NULL,
   `judul` varchar(64) NOT NULL,
   `date` int(11) NOT NULL,
-  `date_end` datetime NOT NULL,
+  `date_end` int(11) NOT NULL,
   `total_dana` int(11) NOT NULL,
   `cerita` varchar(512) NOT NULL,
   `status` int(11) NOT NULL,
@@ -61,10 +93,8 @@ CREATE TABLE `iklan` (
 --
 
 INSERT INTO `iklan` (`id`, `id_kategori`, `id_user`, `judul`, `date`, `date_end`, `total_dana`, `cerita`, `status`, `gambar`) VALUES
-(44, 3, 1, 'Coba', 1616926825, '2021-03-31 00:00:00', 50000000, 'yuk', 1, 'img_1.jpg'),
-(46, 2, 1, 'test', 1616999046, '2021-03-30 00:00:00', 2000000000, 'yuk', 1, 'img_2_gray1.jpg'),
-(47, 3, 2, 'Coba', 1616999112, '2021-03-31 00:00:00', 200000000, 'yuk', 0, 'img_31.jpg'),
-(48, 3, 2, 'Coba', 1616999112, '2021-03-31 00:00:00', 200000000, 'yuk', 0, 'img_32.jpg');
+(1, 3, 2, 'Bantu Masyarakat Miskin', 1617716235, 1619042400, 8000000, 'jadi gini', 1, 'img_3_gray.jpg'),
+(2, 2, 2, 'Kesehatan', 1617716474, 1617573600, 76000000, 'jadi gini', 1, 'img_1.jpg');
 
 -- --------------------------------------------------------
 
@@ -260,13 +290,13 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT for table `donasi`
 --
 ALTER TABLE `donasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `iklan`
 --
 ALTER TABLE `iklan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `kategori_iklan`

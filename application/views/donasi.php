@@ -50,7 +50,7 @@
                     <?php
                     $tgl_ini = date('Y-m-d');
                     $date_end = $d->date_end;
-                    $selisih = strtotime($date_end) - strtotime($tgl_ini);
+                    $selisih = $date_end - strtotime($tgl_ini);
                     $hari = $selisih / (60 * 60 * 24);
                     echo "Sisa Waktu $hari hari";
                     ?>
@@ -59,8 +59,9 @@
 
         </div>
         <div class="col-md-5">
-            <form method="POST" action="<?= base_url('welcome/inputDonasi'); ?>">
-                <?php foreach ($donasi as $d) : ?>
+            <?php foreach ($donasi as $d) : ?>
+                <form method="POST" action="<?= base_url('welcome/donasi/') . $d->id ?>">
+                    <!-- <?= validation_errors() ?> -->
                     <div class="form-group" hidden>
                         <input type="text" id="id_iklan" name="id_iklan" class="form-control" placeholder="Name" value="<?= $d->id ?>">
                     </div>
@@ -68,6 +69,8 @@
                 <div class="mb-3">
                     <label for="name" class="form-label">Nama Lengkap</label>
                     <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
+                    <?= form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
+
                 </div>
                 <!-- <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
@@ -80,6 +83,8 @@
                 <div class="mb-3">
                     <label for="nominal" class="form-label">Jumlah Donasi</label>
                     <input type="text" class="form-control" id="nominal" name="nominal" aria-describedby="emailHelp">
+                    <?= form_error('nominal', '<small class="text-danger pl-3">', '</small>'); ?>
+
                 </div>
                 <div class="form-group" hidden>
                     <input type="text" id="date" name="date" class="form-control" value="<?= time(); ?>">
@@ -89,7 +94,7 @@
                     <textarea class="form-control" id="pesan" name="pesan" rows="3"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Donasi</button>
-            </form>
+                </form>
         </div>
     </div>
 
