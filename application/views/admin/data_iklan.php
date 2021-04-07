@@ -29,8 +29,8 @@
                                 <td><?= $no++ ?></td>
                                 <td><?= $dk->judul ?></td>
                                 <td><?= date('d F Y', $dk->date_created); ?></td>
-                                <td><?= $dk->date_end ?></td>
-                                <td><?= $dk->gambar ?></td>
+                                <td><?= date('d F Y', $dk->date_end); ?></td>
+                                <td><img width="40px" src="<?= base_url('assets/img/') . $dk->gambar ?>" alt=""></td>
                                 <td><?= $dk->name ?></td>
                                 <td value="<?= $dk->is_active ?>"> <?php if ($dk->status == "0") {
                                                                         echo "Not Active";

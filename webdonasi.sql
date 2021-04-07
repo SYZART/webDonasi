@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2021 at 04:01 PM
+-- Generation Time: Apr 07, 2021 at 09:16 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -58,16 +58,10 @@ INSERT INTO `donasi` (`id`, `id_iklan`, `id_user`, `name`, `nominal`, `date`, `p
 (32, 44, 0, 'andi', 90000, 1617694264, 'q'),
 (33, 44, 0, '', 90000, 1617694473, ''),
 (34, 44, 0, '', 90000, 1617694571, ''),
-(35, 44, 0, '', 0, 1617706018, ''),
-(36, 44, 0, '', 0, 1617706072, ''),
-(37, 44, 0, '', 0, 1617706110, ''),
-(38, 44, 0, '', 0, 1617706151, ''),
-(39, 44, 0, '', 0, 1617706194, ''),
-(40, 44, 0, '', 0, 1617713906, ''),
 (41, 44, 0, 'andi', 90000, 1617714904, 'l'),
-(42, 1, 0, '', 0, 1617717180, ''),
-(43, 1, 0, '', 0, 1617717512, ''),
-(44, 2, 0, '', 0, 1617717534, '');
+(44, 2, 0, '', 0, 1617717534, ''),
+(45, 1, 0, 'andi', 90000, 1617777165, 'alhamdulillah'),
+(46, 5, 0, 'andi', 90000, 1617777388, 'Alhamdulillah');
 
 -- --------------------------------------------------------
 
@@ -94,7 +88,11 @@ CREATE TABLE `iklan` (
 
 INSERT INTO `iklan` (`id`, `id_kategori`, `id_user`, `judul`, `date`, `date_end`, `total_dana`, `cerita`, `status`, `gambar`) VALUES
 (1, 3, 2, 'Bantu Masyarakat Miskin', 1617716235, 1619042400, 8000000, 'jadi gini', 1, 'img_3_gray.jpg'),
-(2, 2, 2, 'Kesehatan', 1617716474, 1617573600, 76000000, 'jadi gini', 1, 'img_1.jpg');
+(2, 2, 2, 'Kesehatan', 1617716474, 1617573600, 76000000, 'jadi gini', 1, 'img_1.jpg'),
+(3, 1, 2, 'Banjir Bandang', 1617768901, 1617746400, 80000000, 'jadi gini', 1, 'img_2.jpg'),
+(4, 3, 2, 'Bantu kaum dhuafa', 1617768957, 1619733600, 60000000, 'jadi gini', 0, 'img_2_gray1.jpg'),
+(5, 2, 2, 'Kekurangan Makanan', 1617769020, 1622412000, 10000000, 'jadi gini', 1, 'img_3.jpg'),
+(6, 3, 2, 'Zakati Kaum Dhuafa', 1617777311, 1619733600, 80000000, 'jadi gini', 0, 'img_2_gray2.jpg');
 
 -- --------------------------------------------------------
 
@@ -124,7 +122,7 @@ INSERT INTO `kategori_iklan` (`id`, `id_kategori`, `nama_kategori`) VALUES
 --
 
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
+  `id_usr` int(11) NOT NULL,
   `name` varchar(128) NOT NULL,
   `email` varchar(128) NOT NULL,
   `image` varchar(128) NOT NULL,
@@ -138,7 +136,7 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
+INSERT INTO `user` (`id_usr`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
 (1, 'Admin', 'admin@gmail.com', 'default.jpg', '$2y$10$d9bgvInipcSbI63bJvWFleeHibI64TAfUyChb4NjERPs86GZKWN9e', 1, 1, 1616405445),
 (2, 'User', 'user@gmail.com', 'default.jpg', '$2y$10$Nq22aqp7VZtDbB8jFBuFJevI3BlSLMPZZ63M/FY2Jc28c8xoDUAiK', 2, 1, 1616405484);
 
@@ -256,7 +254,7 @@ ALTER TABLE `kategori_iklan`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_usr`);
 
 --
 -- Indexes for table `user_access_menu`
@@ -290,13 +288,13 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT for table `donasi`
 --
 ALTER TABLE `donasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `iklan`
 --
 ALTER TABLE `iklan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `kategori_iklan`
@@ -308,7 +306,7 @@ ALTER TABLE `kategori_iklan`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_usr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user_access_menu`

@@ -76,7 +76,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <span class="badge-danger py-1 small px-2 rounded mb-3 d-inline-block"><?= $ik->nama_kategori ?></span>
+                            <span class="badge-danger py-1 small px-2 rounded mb-3 d-inline-block mt-2"><?= $ik->nama_kategori ?></span>
                             <h3 class="mb-4"><a href="<?= base_url('welcome/donasi/') . $ik->id; ?>"><?= $ik->judul ?></a></h3>
                             <div class="border-top border-light py-2 d-flex">
                                 <p>Dana yang dibutuhkan :</p>

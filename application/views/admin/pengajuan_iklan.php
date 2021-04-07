@@ -29,8 +29,8 @@
                                 <td><?= $no++ ?></td>
                                 <td><?= $pi->judul ?></td>
                                 <td><?= $pi->name ?></td>
-                                <td><?= $pi->date ?></td>
-                                <td><?= $pi->date_end ?></td>
+                                <td><?= date('d F Y', $pi->date_created); ?></td>
+                                <td><?= date('d F Y', $pi->date_end); ?></td>
                                 <td><?= number_format($pi->total_dana, 0, '.', '.')  ?></td>
                                 <td> <img width="50px" src="<?= site_url('assets/img/') . $pi->gambar ?>" alt=""> </td>
 

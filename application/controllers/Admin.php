@@ -12,7 +12,7 @@ class Admin extends CI_Controller
     {
         $data['title'] = 'Dashboard';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['dataUser'] = $this->db->query("SELECT user.id, user.name, user.email, user.is_active, user.date_created, user_role.role 
+        $data['dataUser'] = $this->db->query("SELECT user.id_usr, user.name, user.email, user.is_active, user.date_created, user_role.role 
         FROM user INNER JOIN user_role 
         ON user_role.id=user.role_id ")->result();
         // $this->session->mark_as_temp('index', 30);
@@ -31,7 +31,7 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['dataIklan'] = $this->db->query("SELECT * FROM kategori_iklan, user, iklan
         WHERE kategori_iklan.id_kategori = iklan.id_kategori
-        AND iklan.id_user = user.id
+        AND iklan.id_user = user.id_usr
         AND iklan.status = 1")->result();
         // $this->session->mark_as_temp('index', 30);
         $this->load->view('admin/header', $data);
@@ -47,7 +47,7 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['pengajuanIklan'] = $this->db->query("SELECT * FROM kategori_iklan, user, iklan
         WHERE kategori_iklan.id_kategori = iklan.id_kategori
-        AND iklan.id_user = user.id
+        AND iklan.id_user = user.id_usr
         AND iklan.status = 0")->result();
         // $this->session->mark_as_temp('index', 30);
         $this->load->view('admin/header', $data);
@@ -58,14 +58,15 @@ class Admin extends CI_Controller
     }
     public function konfirmasiIklan($id)
     {
-        $where = array('id' => $id);
+        // $where = array('id' => $id);
         $data['title'] = 'Update Iklan';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['edit'] = $this->Model->edit_iklan($where, 'iklan')->result();
-        $data['pengajuanIklan'] = $this->db->query("SELECT * FROM kategori_iklan, user, iklan
-        WHERE kategori_iklan.id_kategori = iklan.id_kategori
-        AND iklan.id_user = user.id
-        AND iklan.status = 0")->result();
+        $data['pengajuanIklan'] = $this->db->query("SELECT iklan.* ,kategori_iklan.id_kategori, kategori_iklan.nama_kategori , user.id_usr 
+        FROM iklan,kategori_iklan,user
+        WHERE iklan.id_kategori = kategori_iklan.id_kategori
+        AND iklan.id_user = user.id_usr
+        AND iklan.status = 0
+        AND iklan.id = $id")->result();
         $this->load->view('admin/header', $data);
         $this->load->view('admin/sidebar', $data);
         $this->load->view('admin/topbar', $data);
@@ -75,11 +76,10 @@ class Admin extends CI_Controller
 
     public function konfirmasiIklanAksi()
     {
-       $id = $this->input->post('id');
-        $id_kategori = $this->input->post('id_kategori');
-        $id_user = $this->input->post('id_user');
+        $id = $this->input->post('id');
+        $id_kategori = $this->input->post('kategori');
+        $id_user = $this->input->post('name');
         $judul = $this->input->post('judul');
-        $date = $this->input->post('date');
         $date_end = $this->input->post('date_end');
         $total_dana = $this->input->post('total_dana');
         $cerita = $this->input->post('cerita');
@@ -87,10 +87,9 @@ class Admin extends CI_Controller
         $gambar = $this->input->post('gambar');
 
         $data = array(
-            'id_kategori' => $i_kategori,
+            'id_kategori' => $id_kategori,
             'id_user' => $id_user,
             'judul' => $judul,
-            'date' => $date,
             'date_end' => $date_end,
             'total_dana' => $total_dana,
             'cerita' => $cerita,

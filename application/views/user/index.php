@@ -193,7 +193,7 @@
                 </div>
                 <div class="form-grup" hidden>
                     <label>ID USER</label>
-                    <input type="text" name="id_user" class="form-control" value="<?= $user['id']; ?>">
+                    <input type="text" name="id_user" class="form-control" value="<?= $user['id_usr']; ?>">
                 </div>
                 <div class="form-grup">
                     <label>Judul</label>
