@@ -16,12 +16,14 @@ class User extends CI_Controller
         $data['menu'] = $this->db->query("SELECT * FROM user_sub_menu 
         WHERE user_sub_menu.menu_id = $role_id
         ")->result_array();
+        $time = time();
         $data['dataKategori'] = $this->Model->get_data('kategori_iklan')->result();
         $data['iklan'] = $this->db->query("SELECT iklan.id, iklan.id_kategori, iklan.id_user, iklan.judul, iklan.total_dana, iklan.date, iklan.date_end, iklan.gambar, iklan.cerita, iklan.status, kategori_iklan.id_kategori, kategori_iklan.nama_kategori, user.name, user.image
         FROM iklan, kategori_iklan, user 
         WHERE kategori_iklan.id_kategori = iklan.id_kategori 
         AND iklan.id_user = user.id_usr
-        AND iklan.status =1")->result();
+        AND iklan.status =1
+        AND iklan.date_end > $time")->result();
         $this->load->view('user/header', $data);
         $this->load->view('user/index', $data);
         $this->load->view('user/footer');
@@ -113,5 +115,12 @@ class User extends CI_Controller
             </button>
             </div>');
         redirect('user');
+    }
+
+    public function pengajuanDonasi()
+    {
+        $this->load->view("templates/header");
+        $this->load->view("pengajuan_iklan");
+        $this->load->view("templates/footer");
     }
 }

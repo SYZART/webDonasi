@@ -58,7 +58,7 @@
                         <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
                             <li class="active"><a href="index.html" class="nav-link">Home</a></li>
                             <li><a href="about.html" class="nav-link">About Us</a></li>
-                            <li><a href="causes.html" class="nav-link">Our Causes</a></li>
+                            <li><a href="<?= base_url('user/pengajuandonasi'); ?>" class="nav-link">Pengajuan Iklan</a></li>
                             <li><a href="blog.html" class="nav-link">Blog</a></li>
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
