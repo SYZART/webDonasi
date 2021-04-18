@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="<?= base_url('assets/') ?>css/owl.theme.default.min.css">
     <link rel="stylesheet" href="<?= base_url('assets/') ?>fonts/flaticon/font/flaticon.css">
     <link rel="stylesheet" href="<?= base_url('assets/') ?>css/aos.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="<?= base_url('assets/') ?>css/style.css">
@@ -50,13 +52,13 @@
 
 
                     <div class="site-logo">
-                        <a href="index.html" class="text-white">Fundraiser</a>
+                        <a href="index.html" class="text-white">Relawan Donasi</a>
                     </div>
 
 
                     <nav class="site-navigation text-left ml-auto " role="navigation">
                         <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-                            <li class="active"><a href="index.html" class="nav-link">Home</a></li>
+                            <li class="active"><a href="<?= base_url('user'); ?>" class="nav-link">Home</a></li>
 
                             <li><a href="about.html" class="nav-link">About Us</a></li>
                             <li><a href="blog.html" class="nav-link">Blog</a></li>

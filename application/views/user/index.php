@@ -1,7 +1,7 @@
 <div class="owl-carousel-wrapper">
     <div class="box-92819">
         <h1 class="text-white mb-3">Mari bergabung menjadi Relawan Donasi</h1>
-        <p><a href="#" class="btn btn-primary py-3 px-4 rounded-0">Donasi</a></p>
+        <p><a href="#donasi" class="btn btn-primary py-3 px-4 rounded-0">Donasi</a></p>
     </div>
 
     <div class="owl-carousel owl-1 ">
@@ -42,7 +42,7 @@
 <div class="site-section">
     <div class="container">
 
-        <div class="row mb-5 align-items-st">
+        <div id="donasi" class="row mb-5 align-items-st">
             <div class="col-md-3">
                 <div class="heading-20219">
                     <h2 class="title text-cursive">Donasi yuk</h2>
@@ -61,7 +61,7 @@
 
 
                         <div class="px-3 pt-3 border-top-0 border border shadow-sm">
-                            <a href="#" class="cause-link d-block">
+                            <a href="<?= base_url('user/donasi/') . $ik->id; ?>" class="cause-link d-block">
                                 <img src="<?= base_url('assets/images/') . $ik->gambar ?>" alt="Image" class="img-fluid">
                                 <div class="custom-progress-wrap">
                                     <span class="caption">80% complete</span>

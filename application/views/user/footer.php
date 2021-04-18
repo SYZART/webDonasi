@@ -3,9 +3,9 @@
 
         <div class="d-md-flex cta-20101 align-self-center bg-light p-5">
             <div class="">
-                <h2 class="text-cursive">Helping the Homeless, Hungry, and Hurtings Children</h2>
+                <h2 class="text-cursive">Mari bersama bantu mereka yang membutuhkan <i class="icon-heart text-danger" aria-hidden="true"></i></h2>
             </div>
-            <div class="ml-auto"><a href="#" class="btn btn-primary">Donate Now</a></div>
+            <div class="ml-auto"><a href="#donasi" class="btn btn-primary">Donate Now</a></div>
         </div>
 
     </div>
@@ -17,8 +17,8 @@
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-7">
-                        <h2 class="footer-heading mb-4">About Us</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem modi, quaerat laborum id fugit blanditiis ratione delectus assumenda.</p>
+                        <h2 class="footer-heading mb-4">Tentang Kami</h2>
+                        <p>Relawan Donasi adalah sebuah situs penggalan dana berbasis website yang dibuat guna mempertemukan relawan dengan donatur.</p>
 
                     </div>
                     <div class="col-md-4 ml-auto">
@@ -63,7 +63,7 @@
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         Copyright &copy;<script>
                             document.write(new Date().getFullYear());
-                        </script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        </script> All rights reserved | <a href="#" target="_blank">Relawan Donasi</a> <i class="icon-heart text-danger" aria-hidden="true"></i> 
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>

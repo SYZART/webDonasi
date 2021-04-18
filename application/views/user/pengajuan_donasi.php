@@ -6,7 +6,7 @@
     </div>
     <?= $this->session->flashdata('message') ?>
     <div class="row mt-3 ">
-
+        <div class="col-6">
         <?= form_open_multipart('user/pengajuanDonasi'); ?>
         <div class="form-group">
             <label> Kategori</label>
@@ -65,6 +65,12 @@
         </div>
 
         <?= form_close(); ?>
+        </div>
+        <div class="col-6">
+            <br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <h2 style="font-family: 'Monoton', cursive;">“Allah &nbsp;&nbsp;senantiasa &nbsp;&nbsp;menolong &nbsp;&nbsp;seorang &nbsp;&nbsp;hamba &nbsp;&nbsp;selama &nbsp;&nbsp;hamba &nbsp;&nbsp;itu &nbsp;&nbsp;menolong &nbsp;&nbsp;saudaranya.” (HR. Muslim).</h2>
+        </div>
+        
     </div>
 </div>
 
