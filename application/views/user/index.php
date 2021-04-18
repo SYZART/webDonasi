@@ -57,13 +57,7 @@
             <?php foreach ($iklan as $ik) : ?>
                 <div class="col-md-4">
                     <div class="cause shadow-sm">
-                        <!-- <?php $tgl_ini = date('Y-m-d');
-                                $date_end = $ik->date_end;
-                                if ($tgl_ini > $date_end) {
-                                } else {
-                                    echo "iklan ini tak tampil";
-                                }
-                                ?> -->
+
 
 
                         <div class="px-3 pt-3 border-top-0 border border shadow-sm">
@@ -76,11 +70,11 @@
                                     </div>
                                 </div>
                             </a>
-                            <span class="badge-danger py-1 small px-2 rounded mb-3 d-inline-block"><?= $ik->nama_kategori ?></span>
-                            <h3 class="mb-4"><a href="<?= base_url('user/donasi/') . $ik->id; ?>"><?= $ik->judul ?></a></h3>
+                            <span class="badge-danger py-1 small px-2 rounded mt-2 d-inline-block"><?= $ik->nama_kategori ?></span>
+                            <h3 class="mb-3"><a href="<?= base_url('user/donasi/') . $ik->id; ?>"><?= $ik->judul ?></a></h3>
                             <div class="border-top border-light py-2 d-flex">
                                 <p>Dana yang dibutuhkan :</p>
-                                <div class="ml-auto"><strong class="text-primary"><?= "Rp " . number_format($ik->total_dana, 2, ',', '.'); ?></strong></div>
+                                <div class="ml-auto"><strong class="text-primary"><?= "Rp " . number_format($ik->total_dana); ?></strong></div>
                             </div>
                             <div style="margin-top: -30px;" class="border-light border-bottom py-2 d-flex">
                                 <p>Dana terkumpul :</p>
@@ -89,9 +83,10 @@
                                         FROM donasi WHERE id_iklan= $ik->id";
                                 $menu = $this->db->query($data)->result_array();
                                 ?>
+
                                 <?php foreach ($menu as $m) :   ?>
-                                    <!-- <?= $m['total']; ?> -->
-                                    <div class="ml-auto"><strong class="text-primary"><?= "Rp " . number_format($m['total'], 2, ',', '.'); ?></strong></div>
+
+                                    <div class="ml-auto"><strong class="text-primary"><?= "Rp " . number_format($m['total']); ?></strong></div>
                                 <?php endforeach; ?>
 
                             </div>
@@ -111,6 +106,8 @@
 
     </div>
 </div>
+
+
 
 <div class="bg-image overlay site-section" style="background-image: url('<?= base_url('assets/') ?>images/hero_1.jpg');">
     <div class="container">
@@ -170,65 +167,3 @@
 </div>
 
 </div>
-<!-- modal -->
-<?= form_open_multipart('user/pengajuanIklan'); ?>
-<div class="modal fade" id="pengajuaniklan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Iklan</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label> kategori</label>
-                    <select name="id_kategori" class="form-control">
-                        <option value="">Pilih Kategori</option>
-                        <?php foreach ($dataKategori as $dt) : ?>
-                            <option value="<?= $dt->id_kategori ?>"><?= $dt->nama_kategori ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-                <div class="form-grup" hidden>
-                    <label>ID USER</label>
-                    <input type="text" name="id_user" class="form-control" value="<?= $user['id_usr']; ?>">
-                </div>
-                <div class="form-grup">
-                    <label>Judul</label>
-                    <input type="text" name="judul" class="form-control">
-                </div>
-                <div class="form-grup" hidden>
-                    <label>Tanggal mulai</label>
-                    <input type="text" name="date" class="form-control" value="<?= time(); ?>">
-                </div>
-                <div class="form-grup">
-                    <label>Tanggal Akhir</label>
-                    <input type="date" name="date_end" class="form-control">
-                </div>
-                <div class="form-grup">
-                    <label>Total Dana</label>
-                    <input type="number" name="total_dana" class="form-control">
-                </div>
-                <div class="form-grup">
-                    <label>Cerita</label>
-                    <input type="text" name="cerita" class="form-control">
-                </div>
-                <div class="form-grup" hidden>
-                    <label>Status</label>
-                    <input type="text" name="status" class="form-control" value="0">
-                </div>
-                <div class="form-grup">
-                    <label>Gambar</label>
-                    <input type="file" name="gambar" class="form-control">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
-<?= form_close(); ?>

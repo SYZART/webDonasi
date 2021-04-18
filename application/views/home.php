@@ -68,7 +68,7 @@
 
                         <div class="px-3 pt-3 border-top-0 border border shadow-sm">
                             <a href="#" class="cause-link d-block">
-                                <img src="<?= base_url('assets/images/') . $ik->gambar ?>" alt="Image" class="img-fluid">
+                                <img src="<?= base_url('assets/img/') . $ik->gambar ?>" alt="Image" class="img-fluid">
                                 <div class="custom-progress-wrap">
                                     <span class="caption">80% complete</span>
                                     <div class="custom-progress-inner">
@@ -90,8 +90,7 @@
                                 $menu = $this->db->query($data)->result_array();
                                 ?>
                                 <?php foreach ($menu as $m) :   ?>
-                                    <!-- <?= $m['total']; ?> -->
-                                    <div class="ml-auto"><strong class="text-primary"><?= "Rp " . number_format($m['total'], 2, ',', '.'); ?></strong></div>
+                                    <div class="ml-auto"><strong class="text-primary"><?= "Rp " . number_format($m['total']); ?></strong></div>
                                 <?php endforeach; ?>
 
                             </div>

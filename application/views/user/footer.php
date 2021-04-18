@@ -89,5 +89,12 @@
 <script src="<?= base_url('assets/') ?>js/main.js"></script>
 
 </body>
+<script>
+    $('.custom-file-input').on('change', function() {
+        let fileName = $(this).val().split('\\').pop();
+        $(this).next('.custom-file-label').addClass("selected").html(fileName);
+    });
+</script>
+
 
 </html>

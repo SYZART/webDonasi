@@ -58,7 +58,6 @@ class Admin extends CI_Controller
     }
     public function konfirmasiIklan($id)
     {
-        // $where = array('id' => $id);
         $data['title'] = 'Update Iklan';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['pengajuanIklan'] = $this->db->query("SELECT iklan.* ,kategori_iklan.id_kategori, kategori_iklan.nama_kategori , user.id_usr 

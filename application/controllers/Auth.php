@@ -38,7 +38,7 @@ class Auth extends CI_Controller
 					$data = [
 						'email' => $user['email'],
 						'role_id' => $user['role_id'],
-						'id' => $user['id']
+						'id_usr' => $user['id_usr']
 					];
 					$this->session->set_userdata($data);
 					if ($user['role_id'] == 1) {
@@ -81,7 +81,7 @@ class Auth extends CI_Controller
 			$data = [
 				'name' => htmlspecialchars($this->input->post('name', true)),
 				'email' => htmlspecialchars($this->input->post('email', true)),
-				'image' => 'default.jpg',
+				'image' => 'default.png',
 				'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
 				'role_id' => 2,
 				'is_active' => 1,
@@ -98,7 +98,7 @@ class Auth extends CI_Controller
 	{
 		$this->session->unset_userdata('email');
 		$this->session->unset_userdata('role_id');
-		$this->session->unset_userdata('id');
+		$this->session->unset_userdata('id_usr');
 
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> You have been Logged Out</div>');
 		redirect('welcome');
