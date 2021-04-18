@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2021 at 03:40 AM
+-- Generation Time: Apr 18, 2021 at 08:45 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -51,7 +51,10 @@ INSERT INTO `donasi` (`id`, `id_iklan`, `id_user`, `name`, `nominal`, `date`, `p
 (49, 1, 0, 'andi', 0, 1618467735, 'asd'),
 (51, 12, 0, 'andi', 90000000, 1618641916, 'j'),
 (52, 1, 0, 'andi', 0, 1618643275, 'u'),
-(53, 1, 0, 'andi', 90000, 1618684709, '');
+(53, 1, 0, 'andi', 0, 1618684709, ''),
+(54, 1, 0, 'andi', 0, 1618721703, 's'),
+(55, 5, 0, 'andi', 110000, 1618727023, 'z'),
+(56, 5, 0, 'andi', 800000, 1618727036, 'w');
 
 -- --------------------------------------------------------
 
@@ -77,7 +80,7 @@ CREATE TABLE `iklan` (
 --
 
 INSERT INTO `iklan` (`id`, `id_kategori`, `id_user`, `judul`, `date`, `date_end`, `total_dana`, `cerita`, `status`, `gambar`) VALUES
-(1, 3, 2, 'Bantu Masyarakat Miskin', 1617716235, 1619042400, 6499995, 'jadi gini', 1, 'img_3_gray.jpg'),
+(1, 3, 2, 'Bantu Masyarakat Miskin', 1617716235, 1619042400, 6299995, 'jadi gini', 1, 'img_3_gray.jpg'),
 (2, 2, 2, 'Kesehatan', 1617716474, 1617573600, 76000000, 'jadi gini', 1, 'img_1.jpg'),
 (3, 1, 2, 'Banjir Bandang', 1617768901, 1617746400, 80000000, 'jadi gini', 1, 'img_2.jpg'),
 (4, 3, 2, 'Bantu kaum dhuafa', 1617768957, 1619733600, 60000000, 'jadi gini', 0, 'img_2_gray1.jpg'),
@@ -285,7 +288,7 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT for table `donasi`
 --
 ALTER TABLE `donasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `iklan`

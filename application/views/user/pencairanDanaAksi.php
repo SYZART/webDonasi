@@ -89,10 +89,8 @@
                 $a = $ik->total_dana;
                 ?>
                 <?php foreach ($dana as $d) : ?>
-
                     <input type="number" class="form-control" value="<?= $d['total']  ?>" readonly>
                     <input type="number" name="total_dana" class="form-control" value="<?= $a - $d['total']  ?>" hidden>
-
                 <?php endforeach; ?>
 
             </div>

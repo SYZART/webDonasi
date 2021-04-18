@@ -166,4 +166,17 @@ class Admin extends CI_Controller
             </div>');
         redirect('admin');
     }
+
+    public function print()
+    {
+
+        $data['title'] = "Print";
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['dataIklan'] = $this->db->query("SELECT * FROM kategori_iklan, user, iklan
+        WHERE kategori_iklan.id_kategori = iklan.id_kategori
+        AND iklan.id_user = user.id_usr
+        AND iklan.status = 1")->result();
+
+        $this->load->view('admin/print', $data);
+    }
 }
