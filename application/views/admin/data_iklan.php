@@ -10,7 +10,7 @@
         <div class="card-body">
             <a href="<?= site_url('admin/print') ?>" class="btn btn-primary  mb-2"><i class="fas fa-print"></i></a>
             <a href="<?= site_url('admin/laporan_pdf_donasi') ?> " class="btn btn-warning   mb-2"><i class="fas fa-file-pdf"></i></a>
-            <a href="<?= site_url('admin/pdf') ?> " class="btn btn-success  mb-2"><i class="fas fa-file-excel"></i></a>
+            <a href="<?= site_url('admin/excel') ?> " class="btn btn-success  mb-2"><i class="fas fa-file-excel"></i></a>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>

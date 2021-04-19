@@ -1,27 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en"><head>
     <title>Document</title>
-</head>
-
-<body>
-    <style type="text/css">
-        .table-data {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .table-data tr th,
-        .table-data tr td {
-            border: 1px solid black;
-            font-size: 11pt;
-            padding: 10px 10px 10px 10px;
-        }
-    </style>
+</head><body>
     <h3>
         <center>Laporan data donasi</center>
     </h3>
@@ -40,25 +20,23 @@
             </tr>
         </thead>
         <tbody>
-            <?php
-            $no = 1;
-            foreach ($donasi as $d) {
-            ?>
-                <tr>
-                    <th scope="row"><?= $no++; ?></th>
-                    <td><?= $d['judul']; ?></td>
-                    <td><?= $d['date']; ?></td>
-                    <td><?= $d['date_end']; ?></td>
-                    <td><?= $d['gambar']; ?></td>
-                    <td>User</td>
-                    <td>Active</td>
-                    <td>Edit</td>
-                </tr>
-            <?php
-            }
-            ?>
+        <?php $no = 1;
+                        foreach ($dataIklan as $dk) : ?>
+                            <tr>
+                                <td><?= $no++ ?></td>
+                                <td><?= $dk->judul ?></td>
+                                <td><?= date('d F Y', $dk->date_created); ?></td>
+                                <td><?= date('d F Y', $dk->date_end); ?></td>
+                                <td><img width="40px" src="<?= base_url('assets/img/') . $dk->gambar ?>" alt=""></td>
+                                <td><?= $dk->name ?></td>
+                                <td value="<?= $dk->is_active ?>"> <?php if ($dk->status == "0") {
+                                                                        echo "Not Active";
+                                                                    } else {
+                                                                        echo "Active";
+                                                                    } ?></td>
+                                <td><a href="<?= site_url('admin/') . $dk->id ?>">edit</a></td>
+                            </tr>
+                        <?php endforeach; ?>
         </tbody>
     </table>
-</body>
-
-</html>
+</body></html>
