@@ -3,6 +3,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Model extends CI_Model
 {
+	public function data_awal($time)
+	{
+		return $this->db->query("SELECT iklan.id, iklan.id_kategori, iklan.id_user,
+iklan.judul, iklan.date, iklan.date_end, iklan.gambar, iklan.cerita,
+iklan.status,iklan.total_dana, kategori_iklan.id_kategori, kategori_iklan.nama_kategori, user.name, user.image
+FROM iklan, kategori_iklan, user 
+WHERE kategori_iklan.id_kategori = iklan.id_kategori 
+AND iklan.id_user = user.id_usr
+AND iklan.status =1
+AND iklan.date_end > $time")->result();
+	}
 	public function get_data($table)
 	{
 		return $this->db->get($table);

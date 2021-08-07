@@ -59,15 +59,12 @@
                     <div class="cause shadow-sm">
 
 
-
                         <div class="px-3 pt-3 border-top-0 border border shadow-sm">
                             <a href="<?= base_url('user/donasi/') . $ik->id; ?>" class="cause-link d-block">
-                                <img src="<?= base_url('assets/images/') . $ik->gambar ?>" alt="Image" class="img-fluid">
+                                <img src="<?= base_url('assets/img/') . $ik->gambar ?>" alt="Image" class="img-fluid">
                                 <div class="custom-progress-wrap">
-                                    <span class="caption">80% complete</span>
-                                    <div class="custom-progress-inner">
-                                        <div class="custom-progress bg-danger" style="width: 90%;"></div>
-                                    </div>
+
+
                                 </div>
                             </a>
                             <span class="badge-danger py-1 small px-2 rounded mt-2 d-inline-block"><?= $ik->nama_kategori ?></span>

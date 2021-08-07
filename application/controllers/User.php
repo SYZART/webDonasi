@@ -84,7 +84,6 @@ class User extends CI_Controller
             $data['title'] = "Pengajuan Donasi Iklan";
             $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
             $data['dataKategori'] = $this->Model->get_data('kategori_iklan')->result();
-            $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
             $role_id = $this->session->userdata('role_id');
             $data['menu'] = $this->db->query("SELECT * FROM user_sub_menu 
             WHERE user_sub_menu.menu_id = $role_id
@@ -254,7 +253,7 @@ class User extends CI_Controller
             $this->db->update('user');
 
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Congratultion your profile has been updated </div>');
-            redirect('user');
+            redirect('user/edit');
         }
     }
 }

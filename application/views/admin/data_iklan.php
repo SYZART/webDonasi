@@ -8,9 +8,9 @@
             <h6 class="m-0 font-weight-bold text-primary">Data Iklan</h6>
         </div>
         <div class="card-body">
-            <a href="<?= site_url('admin/print') ?>" class="btn btn-primary  mb-2"><i class="fas fa-print"></i></a>
-            <a href="<?= site_url('admin/laporan_pdf_donasi') ?> " class="btn btn-warning   mb-2"><i class="fas fa-file-pdf"></i></a>
-            <a href="<?= site_url('admin/excel') ?> " class="btn btn-success  mb-2"><i class="fas fa-file-excel"></i></a>
+            <a href="<?= site_url('laporan/print') ?>" class="btn btn-primary  mb-2"><i class="fas fa-print"></i></a>
+            <a href="<?= site_url('laporan/laporan_pdf_donasi') ?> " class="btn btn-warning   mb-2"><i class="fas fa-file-pdf"></i></a>
+            <a href="<?= site_url('laporan/excel_data_iklan') ?> " class="btn btn-success  mb-2"><i class="fas fa-file-excel"></i></a>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -22,10 +22,13 @@
                             <th>Gambar</th>
                             <th>Nama Pembuat</th>
                             <th>Is Active</th>
-                            <th>Action</th>
+                            <th>Aksi</th>
+
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- <?php
+                                $time = time(); ?> -->
                         <?php $no = 1;
                         foreach ($dataIklan as $dk) : ?>
                             <tr>
@@ -35,12 +38,13 @@
                                 <td><?= date('d F Y', $dk->date_end); ?></td>
                                 <td><img width="40px" src="<?= base_url('assets/img/') . $dk->gambar ?>" alt=""></td>
                                 <td><?= $dk->name ?></td>
-                                <td value="<?= $dk->is_active ?>"> <?php if ($dk->status == "0") {
+                                <td value="<?= $dk->is_active ?>"> <?php if ($dk->date_end < time()) {
                                                                         echo "Not Active";
                                                                     } else {
                                                                         echo "Active";
                                                                     } ?></td>
-                                <td><a href="<?= site_url('admin/') . $dk->id ?>">edit</a></td>
+                                <td><a class="btn btn-danger" onclick="javascript: return confirm('Yakin hapus data ini?')" href="<?= site_url('admin/hapus_iklan/') . $dk->id ?>">Hapus</a></td>
+
                             </tr>
                         <?php endforeach; ?>
 

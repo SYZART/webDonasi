@@ -8,10 +8,8 @@
         <div class="ftco-cover-1 overlay" style="background-image: url('<?= base_url('assets/') ?>images/hero_1.jpg');"></div>
         <div class="ftco-cover-1 overlay" style="background-image: url('<?= base_url('assets/') ?>images/hero_2.jpg');"></div>
         <div class="ftco-cover-1 overlay" style="background-image: url('<?= base_url('assets/') ?>images/hero_3.jpg');"></div>
-
     </div>
 </div>
-
 <div class="container">
     <div class="feature-29192-wrap d-md-flex" style="margin-top: -20px; position: relative; z-index: 2;">
 
@@ -38,10 +36,8 @@
 
     </div>
 </div>
-
 <div class="site-section">
     <div class="container">
-
         <div class="row mb-5 align-items-st">
             <div class="col-md-3">
                 <div class="heading-20219">
@@ -52,35 +48,21 @@
                 <p>Mari bergabung untuk memberikan donasi terbaikmu, berapapun donasi yang kamu berikan sangat membantu untuk mereka.</p>
             </div>
         </div>
-
         <div class="row">
             <?php foreach ($iklan as $ik) : ?>
+
                 <div class="col-md-4">
                     <div class="cause shadow-sm">
-                        <!-- <?php $tgl_ini = date('Y-m-d');
-                                $date_end = $ik->date_end;
-                                if ($tgl_ini > $date_end) {
-                                } else {
-                                    echo "iklan ini tak tampil";
-                                }
-                                ?> -->
-
-
                         <div class="px-3 pt-3 border-top-0 border border shadow-sm">
-                            <a href="#" class="cause-link d-block">
+                            <a href="<?= base_url('welcome/donasi/') . $ik->id; ?>" class="cause-link d-block">
                                 <img src="<?= base_url('assets/img/') . $ik->gambar ?>" alt="Image" class="img-fluid">
-                                <div class="custom-progress-wrap">
-                                    <span class="caption">80% complete</span>
-                                    <div class="custom-progress-inner">
-                                        <div class="custom-progress bg-danger" style="width: 90%;"></div>
-                                    </div>
-                                </div>
+
                             </a>
                             <span class="badge-danger py-1 small px-2 rounded mb-3 d-inline-block mt-2"><?= $ik->nama_kategori ?></span>
                             <h3 class="mb-4"><a href="<?= base_url('welcome/donasi/') . $ik->id; ?>"><?= $ik->judul ?></a></h3>
                             <div class="border-top border-light py-2 d-flex">
                                 <p>Dana yang dibutuhkan :</p>
-                                <div class="ml-auto"><strong class="text-primary"><?= "Rp " . number_format($ik->total_dana, 2, ',', '.'); ?></strong></div>
+                                <div class="ml-auto"><strong class="text-primary"><?= "Rp " . number_format($ik->total_dana); ?></strong></div>
                             </div>
                             <div style="margin-top: -30px;" class="border-light border-bottom py-2 d-flex">
                                 <p>Dana terkumpul :</p>
@@ -167,5 +149,4 @@
         </div>
     </div>
 </div>
-
 </div>

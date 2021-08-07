@@ -1,8 +1,9 @@
         <!-- Begin Page Content -->
-        <div class="container-fluid">
+        <div class="container">
 
             <!-- Page Heading -->
-            <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
+            <h1 class="h3 mb-4 text-gray-800 mt-4"><?= $title; ?></h1>
+            <?= $this->session->flashdata('message') ?>
 
             <div class="row">
                 <div class="col-lg-8">
@@ -26,7 +27,7 @@
                         <div class="col-sm-10">
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <img width="170px" src="<?= base_url('assets/img/profile/') . $user['image']; ?>">
+                                    <img width="150px" src="<?= base_url('assets/img/profile/') . $user['image']; ?>">
                                 </div>
                                 <div class="col-sm-9">
                                     <div class="custom-file">
